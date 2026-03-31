@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Product Page</title>
+  <title>Product</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="product.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
 </head>
 
 <body>
-    <nav class="navbar">
-  <div class="logo">MyStore</div>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">MyStore</div>
   <ul class="nav-links">
     <li><a href="home.html">Home</a></li>
     <li><a href="collection.html">Shop</a></li>
@@ -23,70 +23,66 @@
   </ul>
 </nav>
 
-<!-- PRODUCT SECTION -->
-<section class="product-container">
+<!-- PRODUCT -->
+<div class="product-container">
 
   <!-- IMAGE -->
   <div class="product-image">
-    <img src="https://via.placeholder.com/400" alt="Product">
+    <img id="product-img" src="" alt="Product Image">
   </div>
 
   <!-- DETAILS -->
   <div class="product-details">
-    <h1>Premium Product</h1>
-
-    <p class="price">$29.99</p>
+    <h1 id="product-name">Loading...</h1>
+    <p class="price" id="product-price">$0</p>
 
     <p class="description">
-      This is a high-quality product designed to improve your daily life. 
-      Built with premium materials and modern design.
+      Premium quality product designed for comfort and style. Perfect for everyday use.
     </p>
 
-    <!-- QUANTITY -->
-    <div class="quantity">
-      <label>Quantity:</label>
-      <input type="number" value="1" min="1">
-    </div>
-
-    <!-- BUTTON -->
     <button class="btn">Add to Cart</button>
 
-    <!-- TRUST BADGES -->
     <div class="trust">
-      <p>✔ Secure Payment</p>
-      <p>✔ Fast Delivery</p>
+      <p>✔ Free Shipping</p>
       <p>✔ Easy Returns</p>
+      <p>✔ Secure Payment</p>
     </div>
-
   </div>
 
-</section>
+</div>
 
-<!-- EXTRA SECTION (REVIEWS) -->
+<!-- REVIEWS -->
 <section class="reviews">
   <h2>Customer Reviews</h2>
-
   <div class="review">
     ⭐⭐⭐⭐⭐
-    <p>"Absolutely amazing product!"</p>
-  </div>
-
-  <div class="review">
-    ⭐⭐⭐⭐⭐
-    <p>"Worth every penny."</p>
+    <p>"Amazing quality and fast delivery!"</p>
   </div>
 </section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <p>© 2025 MyStore. All rights reserved.</p>
-
-  <div class="footer-links">
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="shipping.html">Shipping</a>
-    <a href="faq.html">FAQ</a>
-  </div>
 </footer>
-</body>
 
+<!-- JS -->
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const name = params.get("name");
+  const price = params.get("price");
+  const img = params.get("img");
+
+  // SET DATA
+  document.getElementById("product-name").textContent = name || "Product";
+  document.getElementById("product-price").textContent = "$" + (price || "0");
+  document.getElementById("product-img").src = img || "";
+
+  // FALLBACK IMAGE (if link fails)
+  document.getElementById("product-img").onerror = function () {
+    this.src = "https://source.unsplash.com/500x500/?product";
+  };
+</script>
+
+</body>
 </html>
