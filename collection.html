@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="collection.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">MyStore</div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="collection.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+</nav>
+
+<!-- CART ICON -->
+<!-- CART ICON -->
+<div class="cart-icon">
+  <span class="cart-logo">🛍️</span>
+  <span id="cart-count">0</span>
+</div>
+
+<section class="collection-container">
+
+  <h1>Our Products</h1>
+
+  <div class="top-bar">
+    <p>Showing 6 products</p>
+    <select>
+      <option>Sort by</option>
+      <option>Price: Low to High</option>
+      <option>Price: High to Low</option>
+    </select>
+  </div>
+
+  <div class="grid">
+
+    <!-- PRODUCT 1 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Classic Watch">
+      <h3>Classic Watch</h3>
+      <p class="price">$49</p>
+      <button class="quick-add">Add to Cart</button>
+      <a href="product.html" class="view-btn">View</a>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+      <h3>Stylish Shirt</h3>
+      <p class="price">$29</p>
+      <button class="quick-add">Add to Cart</button>
+      <a href="product.html" class="view-btn">View</a>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
+      <h3>Running Shoes</h3>
+      <p class="price">$79</p>
+      <button class="quick-add">Add to Cart</button>
+      <a href="product.html" class="view-btn">View</a>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Sneakers">
+      <h3>Sneakers</h3>
+      <p class="price">$65</p>
+      <button class="quick-add">Add to Cart</button>
+      <a href="product.html" class="view-btn">View</a>
+    </div>
+
+    <!-- PRODUCT 5 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+      <h3>Jacket</h3>
+      <p class="price">$89</p>
+      <button class="quick-add">Add to Cart</button>
+      <a href="product.html" class="view-btn">View</a>
+    </div>
+
+    <!-- PRODUCT 6 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455">
+      <h3>Casual Outfit</h3>
+      <p class="price">$59</p>
+      <button class="quick-add">Add to Cart</button>
+      <a href="product.html" class="view-btn">View</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 MyStore. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+  let cartCount = 0;
+
+  const buttons = document.querySelectorAll(".quick-add");
+  const cartDisplay = document.getElementById("cart-count");
+  const cartIcon = document.querySelector(".cart-icon");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      cartCount++;
+      cartDisplay.textContent = cartCount;
+
+      // Animation
+      cartIcon.classList.add("animate");
+
+      setTimeout(() => {
+        cartIcon.classList.remove("animate");
+      }, 400);
+    });
+  });
+</script>
+
+</body>
+</html>
